@@ -1,4 +1,12 @@
+<?php 
 
+include __DIR__.'/functions.php';
+
+if(isset($_GET['length'])){
+    $response = generatePassword($_GET['length']);
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +19,12 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-3">
+                <?php if(isset($response)){ ?>
+                    <div class="alert alert-info">
+                        <?php echo $response; ?>
+                    </div> 
+                <?php } ?>
                 <form action="index.php" method="get">
                     <div class="row">
                         <div class="col-12 col-md-6">
@@ -28,3 +41,5 @@
     </div>
 </body>
 </html>
+               
+        
